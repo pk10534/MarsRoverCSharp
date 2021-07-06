@@ -8,7 +8,7 @@ namespace MarsRoverTests
     public class CommandTests
     {
 
-        [TestMethod]
+        [TestMethod] //1
         public void ArgumentNullExceptionThrownIfCommandTypeIsNullOrEmpty()
         {
             try
@@ -21,19 +21,35 @@ namespace MarsRoverTests
             }
         }
 
-        [TestMethod]
+        [TestMethod] //2
         public void ConstructorSetsCommandType()
         {
             Command newCommand = new Command("MOVE", 0);
             Assert.AreEqual(newCommand.CommandType, "MOVE");
         }
 
-        [TestMethod]
+        [TestMethod] //3
         public void ConstructorSetsInitialNewPositionValue()
         {
             Command newCommand = new Command("MOVE", 20);
             Assert.AreEqual(newCommand.NewPostion, 20);
         }
+
+        [TestMethod] //4
+        public void ConstructorSetsInitialValue()
+        {
+            Command newCommand = new Command("MODE CHANGE", "LOW POWER");
+            Assert.AreEqual(newCommand.NewMode, "LOW POWER");
+        }
+
+
+
+
+
+
+
+
+
 
     }
 }
